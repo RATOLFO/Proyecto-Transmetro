@@ -1,0 +1,301 @@
+/* =====================================================================
+   TRANSMETRO — Sistema de Diseño Minimalista e Intuitivo
+   Paleta: Slate (Pizarra) + Teal/Emerald (Verde Transmetro) + Blanco Puro
+   Se carga al final del <head> en todas las páginas para unificar colores,
+   tipografía, tablas, tarjetas, formularios y botones sin alterar la lógica.
+   ===================================================================== */
+:root {
+    --tm-primary: #0d9488;        /* Teal 600 - Identidad Transmetro */
+    --tm-primary-dark: #0f766e;   /* Teal 700 */
+    --tm-primary-light: #f0fdfa;  /* Teal 50 */
+    --tm-navy: #0f172a;           /* Slate 900 - Títulos y contraste */
+    --tm-slate: #334155;          /* Slate 700 - Texto principal */
+    --tm-muted: #64748b;          /* Slate 500 - Texto secundario */
+    --tm-bg: #f8fafc;             /* Slate 50 - Fondo minimalista limpio */
+    --tm-card: #ffffff;           /* Superficie de tarjetas */
+    --tm-border: #e2e8f0;         /* Bordes sutiles */
+    --tm-border-subtle: #f1f5f9;  /* Divisores internos */
+    --tm-amber: #f59e0b;
+    --tm-danger: #e11d48;
+    --tm-success: #10b981;
+    --tm-radius: 14px;
+    --tm-radius-sm: 10px;
+    --tm-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 6px 20px -4px rgba(15, 23, 42, 0.05);
+    --tm-shadow-hover: 0 10px 28px -6px rgba(15, 23, 42, 0.09);
+}
+
+/* ---------- Base Minimalista ---------- */
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background: var(--tm-bg) !important;
+    color: var(--tm-slate) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+::selection {
+    background: rgba(13, 148, 136, 0.18);
+    color: var(--tm-navy);
+}
+a {
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+/* ---------- Barra Superior (Header Minimalista Glass) ---------- */
+.header {
+    background: rgba(255, 255, 255, 0.88) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--tm-border) !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+    height: 64px;
+    padding: 0 24px !important;
+}
+.header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--tm-primary) 0%, #0284c7 50%, var(--tm-primary) 100%);
+    opacity: 0.85;
+}
+.header h1 {
+    color: var(--tm-navy) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+}
+.menu-btn {
+    border-radius: 10px !important;
+    width: 38px;
+    height: 38px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    color: var(--tm-slate) !important;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    transition: all 0.18s ease !important;
+    padding: 0 !important;
+}
+.menu-btn:hover {
+    background: #f1f5f9 !important;
+    border-color: var(--tm-border) !important;
+    color: var(--tm-navy) !important;
+    transform: none !important;
+}
+
+/* ---------- Contenedores y Encabezados de Página ---------- */
+.main-container {
+    max-width: 1180px;
+}
+.page-title h2, .page-header h2, .main-container > h2 {
+    color: var(--tm-navy) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    font-size: 24px !important;
+    padding-bottom: 0 !important;
+}
+.page-title h2::after, .page-header h2::after, .main-container > h2::after {
+    display: none !important;
+}
+.page-title p, .page-header p {
+    color: var(--tm-muted) !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+/* ---------- Tarjetas Unificadas Minimalistas ---------- */
+.card, .form-card, .admin-card, .card-container, .ruta-card, .stat-card, .stat,
+.estacion-card, .piloto-card, .notif-card, .alerta-card, .report-card, .top-panel {
+    background: var(--tm-card) !important;
+    border-radius: var(--tm-radius) !important;
+    border: 1px solid var(--tm-border) !important;
+    border-top: 1px solid var(--tm-border) !important;
+    box-shadow: var(--tm-shadow) !important;
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card:hover, .ruta-card:hover, .stat-card:hover, .stat:hover, .estacion-card:hover {
+    box-shadow: var(--tm-shadow-hover) !important;
+    border-color: #cbd5e1 !important;
+}
+
+/* Secciones de formulario internas */
+.form-section, .admin-form, .form-box, .vehiculo-box {
+    background: #f8fafc !important;
+    border: 1px solid var(--tm-border) !important;
+    border-radius: 12px !important;
+}
+.form-section h3, .admin-form h3, .admin-card-title, .report-card-title {
+    color: var(--tm-navy) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.015em;
+    border-bottom-color: var(--tm-border) !important;
+}
+
+/* ---------- Tablas Limpias y Minimalistas ---------- */
+table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+th {
+    background: #f8fafc !important;
+    color: var(--tm-muted) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em !important;
+    padding: 12px 16px !important;
+    border-bottom: 1px solid var(--tm-border) !important;
+}
+td {
+    padding: 14px 16px !important;
+    font-size: 13.5px !important;
+    color: var(--tm-slate) !important;
+    border-bottom: 1px solid var(--tm-border-subtle) !important;
+}
+tbody tr {
+    transition: background-color 0.15s ease;
+}
+tbody tr:hover td {
+    background-color: #f8fafc !important;
+}
+tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* ---------- Botones Coherentes ---------- */
+.btn-submit, .btn-primary, .btn-crear-alerta {
+    background: var(--tm-primary) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--tm-primary-dark) !important;
+    border-radius: var(--tm-radius-sm) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 1px 2px rgba(13, 148, 136, 0.15) !important;
+    transition: all 0.18s ease !important;
+}
+.btn-submit:hover, .btn-primary:hover, .btn-crear-alerta:hover {
+    background: var(--tm-primary-dark) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.22) !important;
+}
+
+.btn-edit, .btn-asignar {
+    background: #f0f9ff !important;
+    color: #0369a1 !important;
+    border: 1px solid #bae6fd !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+}
+.btn-edit:hover, .btn-asignar:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+}
+
+.btn-del, .btn-delete {
+    background: #fff1f2 !important;
+    color: #e11d48 !important;
+    border: 1px solid #fecdd3 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+}
+.btn-del:hover, .btn-delete:hover {
+    background: #e11d48 !important;
+    color: #ffffff !important;
+    border-color: #e11d48 !important;
+    transform: none !important;
+}
+
+.btn-sec, .btn-cancel, .btn-cancelar {
+    background: #ffffff !important;
+    color: var(--tm-slate) !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+.btn-sec:hover, .btn-cancel:hover, .btn-cancelar:hover {
+    background: #f1f5f9 !important;
+    color: var(--tm-navy) !important;
+}
+
+/* ---------- Formularios e Inputs ---------- */
+input[type="text"], input[type="number"], input[type="password"], input[type="email"],
+input[type="time"], input[type="date"], select, textarea {
+    border-radius: 9px !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    color: var(--tm-navy) !important;
+    font-family: inherit !important;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-color: var(--tm-primary) !important;
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.14) !important;
+}
+label {
+    color: var(--tm-slate) !important;
+    font-weight: 600 !important;
+}
+
+/* ---------- Alertas y Mensajes de Estado ---------- */
+.alerta, .mensaje-alerta, .aviso {
+    border-radius: 10px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    box-shadow: none !important;
+}
+.alerta.exito, .mensaje-alerta {
+    background: #f0fdf4 !important;
+    color: #166534 !important;
+    border: 1px solid #bbf7d0 !important;
+}
+.alerta.error, .mensaje-alerta.err {
+    background: #fff1f2 !important;
+    color: #9f1239 !important;
+    border: 1px solid #fecdd3 !important;
+}
+
+/* ---------- Overlay de Menús ---------- */
+.overlay {
+    background: rgba(15, 23, 42, 0.35) !important;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+/* ---------- Scrollbars Minimalistas ---------- */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ---------- Adaptabilidad Móvil ---------- */
+@media (max-width: 640px) {
+    .main-container { padding-left: 14px !important; padding-right: 14px !important; }
+    .header { padding: 0 14px !important; }
+    .header h1 { font-size: 15px !important; }
+    .card, .form-card, .card-container, .admin-card, .report-card { padding: 16px !important; overflow-x: auto; }
+}
